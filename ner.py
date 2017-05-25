@@ -4,8 +4,10 @@
 # Author: Alex
 # Created Time: 2017年05月25日 星期四 12时10分21秒
 import sys
+import pprint
 import requests
 
+pp = pprint.PrettyPrinter(indent=4)
 
 def cli(host):
     host = 'http://%s' % host
@@ -16,12 +18,12 @@ def cli(host):
         "旁边那个公安局的领导很不友好。",
         "有功电度表是一个专业术语。",
     ]
-    print(contents)
+    pp.pprint(contents)
     print("-"*40)
 
     ner_url = '%s/ner/all' % host
     r = requests.post(ner_url, json={"contents": contents}).json()
-    print(r)
+    pp.pprint(r)
 
 if __name__ == '__main__':
     cli(sys.argv[1])

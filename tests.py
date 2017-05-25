@@ -3,11 +3,11 @@
 # 统一测试
 # Author: Alex
 # Created Time: 2017年05月12日 星期五 11时15分06秒
-import sys
+#import sys
 import requests
 import unittest
 
-host = ''
+host = 'http://api.nlp.eyedmp.com'
 content1 = '广州迪奥信息科技有限公司创立于2012年。'
 content2 = '5月14日，国家主席习近平在北京出席“一带一路”国际合作高峰论坛开幕式，并发表题为《携手推进“一带一路”建设》的主旨演讲。'
 
@@ -134,5 +134,5 @@ class NLPTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    host = 'http://' + sys.argv[1]
+    #host = 'http://' + sys.argv[1]
     unittest.main()

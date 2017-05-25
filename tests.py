@@ -3,11 +3,11 @@
 # 统一测试
 # Author: Alex
 # Created Time: 2017年05月12日 星期五 11时15分06秒
+import sys
 import requests
 import unittest
 
-host = 'http://api.nlp.eyedmp.com'
-ner_url = '%s/ner/all' % host
+host = ''
 content1 = '广州迪奥信息科技有限公司创立于2012年。'
 content2 = '5月14日，国家主席习近平在北京出席“一带一路”国际合作高峰论坛开幕式，并发表题为《携手推进“一带一路”建设》的主旨演讲。'
 
@@ -21,12 +21,14 @@ def debug(title, *args):
 class NLPTestCase(unittest.TestCase):
     def test_init(self):
         """接口基本测试"""
+        ner_url = '%s/ner/all' % host
         r = requests.post(ner_url+"?debug=true", json={"contents":[content1]}).json()
         self.assertEqual(r['code'], 0, msg=r['message'])
         self.assertGreater(r['run_time'], 0, msg=r['message'])
 
     def test_ner(self):
         """测试实体识别接口"""
+        ner_url = '%s/ner/all' % host
         r = requests.post(ner_url, json={"contents":[content1]}).json()
         self.assertEqual(r['code'], 0, msg=r['message'])
         self.assertEqual(len(r['data']), 1, msg=r['message'])
@@ -130,5 +132,7 @@ class NLPTestCase(unittest.TestCase):
         debug("依存句法分析接口: crf: ", r)
 
 
+
 if __name__ == '__main__':
+    host = 'http://' + sys.argv[1]
     unittest.main()

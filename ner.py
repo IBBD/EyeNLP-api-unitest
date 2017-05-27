@@ -17,12 +17,14 @@ def cli(host):
         "有个同学在广州市第一人民医院工作。",
         "旁边那个公安局的领导很不友好。",
         "有功电度表是一个专业术语。",
+        "阿依莲(东圃大马路)位于雅怡街32号。",
     ]
     pp.pprint(contents)
     print("-"*40)
 
     ner_url = '%s/ner/all?debug=true' % host
     r = requests.post(ner_url, json={"contents": contents}).json()
+    print('识别结果')
     pp.pprint(r)
 
     print("-"*40)

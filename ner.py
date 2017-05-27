@@ -29,8 +29,9 @@ def cli(host):
 
     print("-"*40)
     contents = []
+    content = "交管部门根据交通运行数据和高德地图等出行数据预计，明天早7时至下午1时，多条高速的出城方向将迎来车流高峰，其中京承高速、京藏高速、京哈高速、京港澳高速、京开高速等高速公路，以及东六环、南六环、北六环部分路段交通压力较大。 5月29日、30日的下午3时至晚7时，高速公路将迎来假期返程高峰，京承高速、京港澳高速、京藏高速、通燕高速、京哈高速、京开高速等道路通行压力较大。"
     for i in range(1000):
-        contents.append('广州迪奥信息科技有限公司是一家从事大数据研发的公司, 地址是广州市天河区华观路新塘田头岗二路一横街4号B栋3楼.')
+        contents.append(content)
 
     r = requests.post(ner_url, json={"contents": contents}).json()
     pp.pprint(r['run_time'])

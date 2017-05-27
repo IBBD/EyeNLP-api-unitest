@@ -9,6 +9,7 @@ import requests
 
 pp = pprint.PrettyPrinter(indent=4)
 
+
 def cli(host):
     host = 'http://%s' % host
     contents = [

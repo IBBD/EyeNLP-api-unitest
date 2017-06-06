@@ -132,7 +132,7 @@ class NLPTestCase(unittest.TestCase):
 
     def test_classify(self):
         content = '市民于2016年1月1日在东莞市黄江镇江南路（港华门诊部正对面）的小米手机专卖店购买了一个苹果5S手机，价值2600元（有发票）。市民反映经苹果官方网站查询到该手机激活日期为2014，并于1月2日与商家协商退换，商家拒绝处理。现市民要求商家更换一台全新的手机或退款，请协调。'
-        url = "%s/classify/contents/predict/ibbd20170603" % host
+        url = "%s/classify/contents/predict/cellphone" % host
         r = requests.post(url, json={"contents":[content]}).json()
         self.assertEqual(r['code'], 0, msg=r['message'])
         self.assertEqual(len(r['data']), 1, msg="返回结果和输入不对应")
